@@ -29,3 +29,8 @@ Route::get('/dashbord','Admin\AdminController@index');
 Route::group( ['prefix'=>'admin','namespace'=>'Admin'],function(){
     Route::get('/create','QuizeController@create')->name('admin.quize.create');
 });
+
+Route::group( ['prefix'=>'user_role','namespace'=>'Admin'],function(){
+  Route::get('/create','UserRoleController@create')->name('user_role.create');
+  Route::post('/store', 'UserRoleController@store')->name('user_role.store');
+});
