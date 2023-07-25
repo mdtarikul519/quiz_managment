@@ -19,4 +19,9 @@ class UserRoleController extends Controller
             $data->save();
             return redirect()->back();
     }
+
+    public function view(){
+        $alldata = User_Role::all();
+
+    }
 }
