@@ -61,6 +61,8 @@
 						<li><a href=" {{ asset('website') }}/#">Courses</a></li>
 						<li><a href=" {{ asset('website') }}/blog.html">Blog</a></li>
 						<li><a href=" {{ asset('website') }}/contact.html">Contact</a></li>
+						<li><a href=" {{ route('login') }}">Login</a></li>
+					
 					</ul>
 				</nav>
 				<!-- /Navigation -->
