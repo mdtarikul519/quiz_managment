@@ -16,7 +16,7 @@
                     </ul>
                 </li>
                
-
+{{-- 
                 <li class="menu-item-has-children dropdown">
                     <a href="{{asset('admin')}}/#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false"> <i class="menu-icon fa fa-cogs"></i>UserRole</a>
@@ -25,7 +25,7 @@
                                 href="{{route('user_role.create')}}">create</a></li>
                         
                     </ul>
-                </li>
+                </li> --}}
 
 
             </ul>

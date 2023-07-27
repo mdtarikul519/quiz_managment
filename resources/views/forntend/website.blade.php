@@ -22,6 +22,8 @@
 
 		<!-- Custom stlylesheet -->
 		<link type="text/css" rel="stylesheet" href=" {{ asset('website') }}/css/style.css"/>
+		<script src="{{ asset('js/app.js') }}" defer></script>
+		{{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
 
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -61,7 +63,33 @@
 						<li><a href=" {{ asset('website') }}/#">Courses</a></li>
 						<li><a href=" {{ asset('website') }}/blog.html">Blog</a></li>
 						<li><a href=" {{ asset('website') }}/contact.html">Contact</a></li>
-						<li><a href=" {{ route('login') }}">Login</a></li>
+						@guest
+						@if (Route::has('login'))
+							<li class="nav-item">
+								<a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+							</li>
+						@endif
+
+					
+					@else
+						<li class="nav-item dropdown">
+							<a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+								{{ Auth::user()->name }}
+							</a>
+
+							<div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+								<a class="dropdown-item"style="color:rgb(212, 102, 102)"  href="{{ route('logout') }}"
+								   onclick="event.preventDefault();
+												 document.getElementById('logout-form').submit();">
+									{{ __('Logout') }}
+								</a>
+
+								<form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+									@csrf
+								</form>
+							</div>
+						</li>
+					@endguest
 					
 					</ul>
 				</nav>
