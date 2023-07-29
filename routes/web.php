@@ -30,6 +30,8 @@ Route::group( ['prefix'=>'admin','namespace'=>'Admin'],function(){
     Route::get('/create','QuizeController@create')->name('admin.quize.create');
 });
 
-Route::group( ['prefix'=>'user_role','namespace'=>'Admin'],function(){
+Route::group( ['prefix'=>'class','namespace'=>'Admin'],function(){
   
+  Route::get('/create','ClassController@create')->name('admin.class.create');
+  Route::post('/store','ClassController@store')->name('admin.class.store');
 });
