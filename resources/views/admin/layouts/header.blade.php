@@ -1,11 +1,14 @@
 <header id="header" class="header">
     <div class="top-left">
         <div class="navbar-header">
-            <a class="navbar-brand" href="{{asset('admin')}}/https://colorlib.com/polygon/elaadmin/"><img
+            <a class="navbar-brand" href="{{ asset('admin') }}/https://colorlib.com/polygon/elaadmin/"><img
                     src="https://colorlib.com/polygon/elaadmin/images/logo.png" alt="Logo"></a>
-            <a class="navbar-brand hidden" href="{{asset('admin')}}/https://colorlib.com/polygon/elaadmin/"><img
+            <a class="navbar-brand hidden" href="{{ asset('admin') }}/https://colorlib.com/polygon/elaadmin/"><img
                     src="https://colorlib.com/polygon/elaadmin/images/logo2.png" alt="Logo"></a>
             <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         </div>
     </div>
     <div class="top-right">
@@ -14,8 +17,7 @@
                 <button class="search-trigger"><i class="fa fa-search"></i></button>
                 <div class="form-inline">
                     <form class="search-form">
-                        <input class="form-control mr-sm-2" type="text" placeholder="Search ..."
-                            aria-label="Search">
+                        <input class="form-control mr-sm-2" type="text" placeholder="Search ..." aria-label="Search">
                         <button class="search-close" type="submit"><i class="fa fa-close"></i></button>
                     </form>
                 </div>
@@ -27,15 +29,15 @@
                     </button>
                     <div class="dropdown-menu" aria-labelledby="notification">
                         <p class="red">You have 3 Notification</p>
-                        <a class="dropdown-item media" href="{{asset('admin')}}/#">
+                        <a class="dropdown-item media" href="{{ asset('admin') }}/#">
                             <i class="fa fa-check"></i>
                             <p>Server #1 overloaded.</p>
                         </a>
-                        <a class="dropdown-item media" href="{{asset('admin')}}/#">
+                        <a class="dropdown-item media" href="{{ asset('admin') }}/#">
                             <i class="fa fa-info"></i>
                             <p>Server #2 overloaded.</p>
                         </a>
-                        <a class="dropdown-item media" href="{{asset('admin')}}/#">
+                        <a class="dropdown-item media" href="{{ asset('admin') }}/#">
                             <i class="fa fa-warning"></i>
                             <p>Server #3 overloaded.</p>
                         </a>
@@ -49,7 +51,7 @@
                     </button>
                     <div class="dropdown-menu" aria-labelledby="message">
                         <p class="red">You have 4 Mails</p>
-                        <a class="dropdown-item media" href="{{asset('admin')}}/#">
+                        <a class="dropdown-item media" href="{{ asset('admin') }}/#">
                             <span class="photo media-left"><img alt="avatar"
                                     src="https://colorlib.com/polygon/elaadmin/images/avatar/1.jpg"></span>
                             <div class="message media-body">
@@ -58,7 +60,7 @@
                                 <p>Hello, this is an example msg</p>
                             </div>
                         </a>
-                        <a class="dropdown-item media" href="{{asset('admin')}}/#">
+                        <a class="dropdown-item media" href="{{ asset('admin') }}/#">
                             <span class="photo media-left"><img alt="avatar"
                                     src="https://colorlib.com/polygon/elaadmin/images/avatar/2.jpg"></span>
                             <div class="message media-body">
@@ -67,7 +69,7 @@
                                 <p>Lorem ipsum dolor sit amet, consectetur</p>
                             </div>
                         </a>
-                        <a class="dropdown-item media" href="{{asset('admin')}}/#">
+                        <a class="dropdown-item media" href="{{ asset('admin') }}/#">
                             <span class="photo media-left"><img alt="avatar"
                                     src="https://colorlib.com/polygon/elaadmin/images/avatar/3.jpg"></span>
                             <div class="message media-body">
@@ -76,7 +78,7 @@
                                 <p>Hello, this is an example msg</p>
                             </div>
                         </a>
-                        <a class="dropdown-item media" href="{{asset('admin')}}/#">
+                        <a class="dropdown-item media" href="{{ asset('admin') }}/#">
                             <span class="photo media-left"><img alt="avatar"
                                     src="https://colorlib.com/polygon/elaadmin/images/avatar/4.jpg"></span>
                             <div class="message media-body">
@@ -89,17 +91,17 @@
                 </div>
             </div>
             <div class="user-area dropdown float-right">
-                <a href="{{asset('admin')}}/#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true"
-                    aria-expanded="false">
+                <a href="{{ asset('admin') }}/#" class="dropdown-toggle active" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
                     <img class="user-avatar rounded-circle"
                         src="https://colorlib.com/polygon/elaadmin/images/admin.jpg" alt="User Avatar">
                 </a>
                 <div class="user-menu dropdown-menu">
-                    <a class="nav-link" href="{{asset('admin')}}/#"><i class="fa fa-user"></i>My Profile</a>
-                    <a class="nav-link" href="{{asset('admin')}}/#"><i class="fa fa-bell-o"></i>Notifications <span
-                            class="count">13</span></a>
-                    <a class="nav-link" href="{{asset('admin')}}/#"><i class="fa fa-cog"></i>Settings</a>
-                    <a class="nav-link" href="{{asset('admin')}}/#"><i class="fa fa-power-off"></i>Logout</a>
+                    <a class="nav-link" href="{{ asset('admin') }}/#"><i class="fa fa-user"></i>My Profile</a>
+                    <a class="nav-link" href="{{ asset('admin') }}/#"><i class="fa fa-bell-o"></i>Notifications
+                        <span class="count">13</span></a>
+                    <a class="nav-link" href="{{ asset('admin') }}/#"><i class="fa fa-cog"></i>Settings</a>
+                    <a class="nav-link" href="{{ asset('admin') }}/#"><i class="fa fa-power-off"></i>Logout</a>
                 </div>
             </div>
         </div>

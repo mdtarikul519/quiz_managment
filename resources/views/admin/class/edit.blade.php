@@ -1,16 +1,7 @@
 @extends('admin.index')
 @section('content')
-@extends('admin.index')
-@section('content')
-@if (session()->get('success'))
-<script>
-    Swal.fire(
-        'Good job!',
-        '{{ session()->get('success') }}',
-        'success'
-    )
-</script>   
-@endif
+
+
     
 
     <div class="container">
@@ -30,7 +21,7 @@
         </div>
         <div class="row justify-content-center">
             <div class="col-md-6">
-                <form action="{{ route('admin.quiz.store') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('admin.class.update',$data->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="card">
                         <div class="card_header d-flex flex-wrap gap-3 justify-content-between p-4">
@@ -40,44 +31,30 @@
                         <div class="card-body">
 
                             <div class="from-group col-md-6">
-                                   <label for="">Class_id:</label>
-                                   <select name="class_id" class="form-control">
-                                          @foreach ( $class as $data)
-                                            <option value="{{$data->id }}">{{ $data->name }}</option> 
-                                          @endforeach
-                                   </select>
-                                   @error('name')
-                                       <div class="text-danger">{{ $name }}</div>
-                                   @enderror
-                               </div>
-
+                                <label for="">Class Name:</label>
+                                <input value="{{ $data->name }}" type="text" name="name" class="form-control" />
+                                @error('name')
+                                    <div class="text-danger">{{ $name }}</div>
+                                @enderror
+                            </div>
 
                             <div class="from-group col-md-6">
-                                <label for="">quiz Name:</label>
-                                <input value="" type="text" name="quiz_name" class="form-control" />
-                                @error('quiz_name')
-                                    <div class="text-danger">{{ $quiz_name }}</div>
-                                @enderror
+                                <label for="">Roll :</label>
+                                <input type="number" value="{{ $data->roll }}"  name="roll" class="form-control">
+
                             </div>
 
                             <div class="form-group col-md-6 mt-6">
                                 <label>Teacher name:</label>
-                                <input type="text" name="teacher" class="form-control">
+                                <input type="text" value="{{ $data->teacher }}"  name="teacher" class="form-control">
                             </div>
-                            <div class="form-group col-md-6 mt-6">
-                                   <label>Image</label>
-                                   <input type="file" name="image" class="form-control">
-                               </div>
-
 
                             <div class="text-center">
-                                <button class="btn btn-outline-info">submit</button>
+                                <button class="btn btn-outline-info">Update</button>
                             </div>
                         </div>
                 </form>
             </div>
         </div>
     </div>
-@endsection
-
 @endsection

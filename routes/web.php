@@ -34,4 +34,18 @@ Route::group( ['prefix'=>'class','namespace'=>'Admin'],function(){
   
   Route::get('/create','ClassController@create')->name('admin.class.create');
   Route::post('/store','ClassController@store')->name('admin.class.store');
+  Route::get('/view','ClassController@view')->name('admin.class.view');
+  Route::get('/edit/{id}','ClassController@edit')->name('admin.class.edit');
+  Route::post('/update/{id}','ClassController@update')->name('admin.class.update');
+  Route::get('/delete/{id}','ClassController@delete')->name('admin.class.delete');
+});
+
+Route::group( ['prefix'=>'quiz','namespace'=>'Admin'],function(){
+  
+  Route::get('/create','QuizController@create')->name('admin.quiz.create');
+  Route::post('/store','QuizController@store')->name('admin.quiz.store');
+  Route::get('/view','QuizController@view')->name('admin.quiz.view');
+  Route::get('/edit/{id}','QuizController@edit')->name('admin.quiz.edit');
+  Route::post('/update/{id}','QuizController@update')->name('admin.quiz.update');
+  Route::get('/delete/{id}','QuizController@delete')->name('admin.quiz.delete');
 });

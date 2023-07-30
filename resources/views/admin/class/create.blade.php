@@ -1,5 +1,16 @@
 @extends('admin.index')
 @section('content')
+@if (session()->get('success'))
+<script>
+    Swal.fire(
+        'Good job!',
+        '{{ session()->get('success') }}',
+        'success'
+    )
+</script>   
+@endif
+    
+
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -17,13 +28,12 @@
         </div>
         <div class="row justify-content-center">
             <div class="col-md-6">
-                <form action="{{route('admin.class.store')}}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('admin.class.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="card">
                         <div class="card_header d-flex flex-wrap gap-3 justify-content-between p-4">
                             <h2>Studented Create</h2>
-                            <a href="" class="btn btn-outline-info"> <i
-                                    class="fa fa-arrow-left">Back</i></a>
+                            <a href="" class="btn btn-outline-info"> <i class="fa fa-arrow-left">Back</i></a>
                         </div>
                         <div class="card-body">
 
@@ -37,19 +47,19 @@
 
                             <div class="from-group col-md-6">
                                 <label for="">Roll :</label>
-                                 <input type="number" value="" name="roll" class="form-control">
+                                <input type="number" value="" name="roll" class="form-control">
 
-                             </div>
+                            </div>
 
                             <div class="form-group col-md-6 mt-6">
                                 <label>Teacher name:</label>
                                 <input type="text" name="teacher" class="form-control">
                             </div>
 
-                        <div class="text-center">
-                            <button class="btn btn-outline-info">submit</button>
+                            <div class="text-center">
+                                <button class="btn btn-outline-info">submit</button>
+                            </div>
                         </div>
-                    </div>
                 </form>
             </div>
         </div>

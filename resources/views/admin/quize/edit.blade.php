@@ -30,20 +30,22 @@
         </div>
         <div class="row justify-content-center">
             <div class="col-md-6">
-                <form action="{{ route('admin.quiz.store') }}" method="POST" enctype="multipart/form-data">
+                <form action="" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="card">
                         <div class="card_header d-flex flex-wrap gap-3 justify-content-between p-4">
                             <h2>Studented Create</h2>
                             <a href="" class="btn btn-outline-info"> <i class="fa fa-arrow-left">Back</i></a>
                         </div>
+                        <input type="text" value="{{ $data->id }}">
                         <div class="card-body">
-
+                           
                             <div class="from-group col-md-6">
                                    <label for="">Class_id:</label>
-                                   <select name="class_id" class="form-control">
-                                          @foreach ( $class as $data)
-                                            <option value="{{$data->id }}">{{ $data->name }}</option> 
+                                   <select name="class_id" value="{{ $data->class_id }}" class="form-control">
+
+                                          @foreach ( $classes as $item)
+                                            <option  {{$data->item == $item->id?'selected':'' }}  value="{{ $item->id }}">{{ $item->name }}</option> 
                                           @endforeach
                                    </select>
                                    @error('name')
@@ -54,7 +56,7 @@
 
                             <div class="from-group col-md-6">
                                 <label for="">quiz Name:</label>
-                                <input value="" type="text" name="quiz_name" class="form-control" />
+                                <input value="{{ $data->quiz_name }}" type="text" name="quiz_name" class="form-control" />
                                 @error('quiz_name')
                                     <div class="text-danger">{{ $quiz_name }}</div>
                                 @enderror
