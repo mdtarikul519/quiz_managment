@@ -11,6 +11,6 @@ class Quiz extends Model
 
     public function class_relation(){
 
-        return $this->belongsTo(Classes:: class,'id');
+        return $this->belongsTo(Classes:: class,'class_id');
     }
 }

@@ -49,3 +49,14 @@ Route::group( ['prefix'=>'quiz','namespace'=>'Admin'],function(){
   Route::post('/update/{id}','QuizController@update')->name('admin.quiz.update');
   Route::get('/delete/{id}','QuizController@delete')->name('admin.quiz.delete');
 });
+
+
+Route::group( ['prefix'=>'question','namespace'=>'Admin'],function(){
+  
+  Route::get('/create','QuestionController@create')->name('admin.question.create');
+  Route::post('/store','QuestionController@store')->name('admin.question.store');
+  Route::get('/view','QuestionController@view')->name('admin.question.view');
+  Route::get('/edit/{id}','QuestionController@edit')->name('admin.question.edit');
+  Route::post('/update/{id}','QuestionController@update')->name('admin.question.update');
+  Route::get('/delete/{id}','QuestionController@delete')->name('admin.question.delete');
+});

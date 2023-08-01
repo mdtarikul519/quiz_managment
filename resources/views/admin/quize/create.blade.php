@@ -1,7 +1,5 @@
 @extends('admin.index')
 @section('content')
-@extends('admin.index')
-@section('content')
 @if (session()->get('success'))
 <script>
     Swal.fire(
@@ -80,4 +78,3 @@
     </div>
 @endsection
 
-@endsection

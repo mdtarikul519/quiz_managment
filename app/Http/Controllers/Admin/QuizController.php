@@ -14,6 +14,7 @@ class QuizController extends Controller
     public function create()
     {
         $class = Classes::get();
+        
         return view('admin.quize.create', compact('class'));
     }
 
@@ -48,5 +49,28 @@ class QuizController extends Controller
             $classes = Classes::get();
             // dd( $data);
             return view('admin.quize.edit',compact('data','classes'));
+    }
+
+
+    public function update(Request $request, $id){
+          
+        $data = Quiz::find($id);
+        $data->class_id = $request->class_id;
+        $data->quiz_name = $request->quiz_name;
+        $data->teacher = $request->teacher;
+        if ($request->hasFile('image')) {
+            $data->image = Storage::put('/quiz', $request->file('image'));
+        }
+        //  dd($request->hasFile('image'));
+        $data->update();
+
+        return redirect()->route('admin.quiz.view')->with('success', 'data update successfully');
+    
+    }
+
+    public function delete($id){
+            Quiz::where('id', $id)->delete();
+
+            return redirect()->back()->with('success', 'data delete successfully');
     }
 }
