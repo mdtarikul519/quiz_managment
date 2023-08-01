@@ -29,7 +29,7 @@
                                    <select name="class_id" value="{{ $data->class_id }}" class="form-control">
 
                                           @foreach ( $classes as $item)
-                                            <option  {{$data->item == $item->id?'selected':'' }}  value="{{ $item->id }}">{{ $item->name }}</option> 
+                                            <option  {{$data->class_id == $item->id?'selected':'' }}  value="{{ $item->id }}">{{ $item->name }}</option> 
                                           @endforeach
                                    </select>
                                    @error('name')
