@@ -9,7 +9,7 @@
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>quiz_id</th>
+                                    <th>quiz_name</th>
                                     <th>question_name</th>
                                     <th>OptionA</th>
                                     <th>OptionB</th>

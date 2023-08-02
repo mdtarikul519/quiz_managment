@@ -19,9 +19,9 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>name</th>
-                                            <th>role</th>
-                                            <th>teacher</th>
+                                            <th>class_name</th>
+                                            <th>class_role</th>
+                                            <th>teacher_name</th>
                                             <th  style="width: 155px" class="text-center">Action</th>
                                         </tr>
                                     </thead>
@@ -29,9 +29,9 @@
                                         @foreach ( $alldata as $data )
                                             <tr>
                                                 <td>{{ $data->id }}</td>
-                                                <td>{{ $data->name }}</td>
-                                                <td>{{ $data->roll }}</td>
-                                                <td>{{ $data->teacher }}</td>
+                                                <td>{{ $data->class_name }}</td>
+                                                <td>{{ $data->class_roll }}</td>
+                                                <td>{{ $data->teacher_name }}</td>
                                                 <td>
                                                     <div class="table_action">
                                               

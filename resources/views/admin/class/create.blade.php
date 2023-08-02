@@ -39,21 +39,22 @@
 
                             <div class="from-group col-md-6">
                                 <label for="">Class Name:</label>
-                                <input value="" type="text" name="name" class="form-control" />
-                                @error('name')
-                                    <div class="text-danger">{{ $name }}</div>
-                                @enderror
+                                <input value="" type="text" name="class_name" class="form-control" />
+        
                             </div>
 
                             <div class="from-group col-md-6">
-                                <label for="">Roll :</label>
-                                <input type="number" value="" name="roll" class="form-control">
+                                <label for=""> Class Roll :</label>
+                                <input type="number" value="" name="class_roll" class="form-control">
 
                             </div>
 
                             <div class="form-group col-md-6 mt-6">
                                 <label>Teacher name:</label>
-                                <input type="text" name="teacher" class="form-control">
+                                <select name="teacher_name" id=""class="form-control">
+                                         <option value="{{ Auth::user()->name }}">{{ Auth::user()->name }}</option>
+                                </select>
+                              
                             </div>
 
                             <div class="text-center">

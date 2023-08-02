@@ -15,9 +15,9 @@ class CreateClassesTable extends Migration
     {
         Schema::create('classes', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 100)->nullable();
-            $table->bigInteger('roll')->nullable();
-            $table->string('teacher', 100)->nullable();
+            $table->string('class_name', 100)->nullable();
+            $table->bigInteger('class_roll')->nullable();
+            $table->string('teacher_name', 100)->nullable();
             $table->timestamps();
         });
     }

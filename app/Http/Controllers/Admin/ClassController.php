@@ -17,9 +17,9 @@ class ClassController extends Controller
     {
         $data = new Classes();
 
-        $data->name = $request->name;
-        $data->roll = $request->roll;
-        $data->teacher = $request->teacher;
+        $data->class_name = $request->class_name;
+        $data->class_roll = $request->class_roll;
+        $data->teacher_name = $request->teacher_name;
 
         $data->save();
         return redirect()->route('admin.class.view')->with('success', 'data store successfully');
@@ -42,9 +42,9 @@ class ClassController extends Controller
     public function update(Request $request, $id)
     {
         $datas = Classes::find($id);
-        $datas->name = $request->name;
-        $datas->roll = $request->roll;
-        $datas->teacher = $request->teacher;
+        $datas->class_name = $request->class_name;
+        $datas->class_roll = $request->class_roll;
+        $datas->teacher_name = $request->teacher_name;
 
         $datas->update();
 

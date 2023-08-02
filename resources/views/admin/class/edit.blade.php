@@ -32,7 +32,7 @@
 
                             <div class="from-group col-md-6">
                                 <label for="">Class Name:</label>
-                                <input value="{{ $data->name }}" type="text" name="name" class="form-control" />
+                                <input value="{{ $data->class_name }}" type="text" name="class_name" class="form-control" />
                                 @error('name')
                                     <div class="text-danger">{{ $name }}</div>
                                 @enderror
@@ -40,13 +40,13 @@
 
                             <div class="from-group col-md-6">
                                 <label for="">Roll :</label>
-                                <input type="number" value="{{ $data->roll }}"  name="roll" class="form-control">
+                                <input type="number" value="{{ $data->class_roll }}"  name="class_roll" class="form-control">
 
                             </div>
 
                             <div class="form-group col-md-6 mt-6">
                                 <label>Teacher name:</label>
-                                <input type="text" value="{{ $data->teacher }}"  name="teacher" class="form-control">
+                                <input type="text" value="{{ $data->teacher_name }}"  name="teacher_name" class="form-control">
                             </div>
 
                             <div class="text-center">

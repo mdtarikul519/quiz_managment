@@ -19,8 +19,8 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Class_id</th>
-                                        <th>name</th>
+                                        <th>Class_Name</th>
+                                        <th>quiz_subject</th>
                                         <th>teacher</th>
                                         <th>image</th>
                                         <th style="width: 155px" class="text-center">Action</th>
@@ -33,7 +33,7 @@
                                             <td>{{ $data->id }}</td>
                                             <td>   
                                                 @if($data->class_relation)
-                                                {{ $data->class_relation->name }}
+                                                {{ $data->class_relation->class_name }}
                                                 @endif           
                                             </td>
                                             <td>{{ $data->quiz_name }}</td>
