@@ -48,6 +48,7 @@ Route::group( ['prefix'=>'quiz','namespace'=>'Admin'],function(){
   Route::get('/edit/{id}','QuizController@edit')->name('admin.quiz.edit');
   Route::post('/update/{id}','QuizController@update')->name('admin.quiz.update');
   Route::get('/delete/{id}','QuizController@delete')->name('admin.quiz.delete');
+  
 });
 
 
