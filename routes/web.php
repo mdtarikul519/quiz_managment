@@ -18,17 +18,29 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-  Route::get('/','WebsiteController@index');
+  Route::get('/','HomeController@index');
   Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::group( ['prefix'=>'','namespace'=>'website'],function(){
+  
+  Route::get('/examlist','ExamController@examlist')->name('examlist');
+});
+
+
+
+
+
+
 
 Route::get('/dashboard','Admin\AdminController@index');
 
 
-Route::group( ['prefix'=>'admin','namespace'=>'Admin'],function(){
-    Route::get('/create','QuizeController@create')->name('admin.quize.create');
-});
+
+
+
+
 
 Route::group( ['prefix'=>'class','namespace'=>'Admin'],function(){
   
