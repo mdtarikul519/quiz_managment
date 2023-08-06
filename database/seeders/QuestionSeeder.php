@@ -27,6 +27,16 @@ class QuestionSeeder extends Seeder
         ]);
         Question::create([
 
+            'quiz_id' => '1',
+            'question_name' => 'What is used to make hummus?',
+            'optionA' => 'Drek',
+            'optionB' => 'Chickpeas',
+            'optionc' => 'Makepiece',
+            'optionD' => ' Barely',
+            'answer' => 'Chickpeas',
+         ]);
+        Question::create([
+
             'quiz_id' => '2',
             'question_name' => 'PHP is Scripting language',
             'optionA' => 'Browser Side',

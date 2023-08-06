@@ -27,6 +27,8 @@ Route::group( ['prefix'=>'','namespace'=>'website'],function(){
   
   Route::get('/examlist','ExamController@examlist')->name('examlist');
   Route::get('/quiz_question/{id}','ExamController@quiz_question')->name('quiz_question');
+  Route::Post('/quiz_question_store','ExamController@quiz_question_store')->name('quiz_question_store');
+  Route::Post('/quiz_answer_view','ExamController@quiz_answer_view')->name('quiz_answer_view');
 });
 
 

@@ -3,21 +3,29 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6">  
-     @foreach ( $data as $item )
-            <form action="/action_page.php">           
+    
+            <form action="{{ route('quiz_question_store') }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                @foreach ( $data as $item ) 
+           {{-- @dd($item->optionD) --}}
+                    <input type="text" hidden name="user_id" value="{{ $item->user_id }}"> 
+                    <input type="text" hidden name="question_id[]" value="{{ $item->id }}">  
+                    <input type="text" hidden name="quiz_id" value="{{ $item->quiz_id }}">  
                     <h1>{{ $item->question_name }}</h1>
-                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                    <input type="checkbox"  name="submit_answer[]" value="{{ $item->optionA }}">
                     <label for="vehicle1"> {{ $item->optionA }}</label><br>
-                    <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+                    <input type="checkbox" id="vehicle2" name="submit_answer[]" value="{{ $item->optionB }}">
                     <label for="vehicle2"> {{ $item->optionB }}</label><br>
-                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                    <input type="checkbox" id="vehicle3" name="submit_answer[]" value=" {{ $item->optionC}}">
                     <label for="vehicle3"> {{ $item->optionC}}</label><br>
-                    <input type="checkbox" id="vehicle4" name="vehicle3" value="Boat">
-                    <label for="vehicle4"> {{ $item->optionD}}</label><br><br>
-                    <label > {{ $item->answer}}</label><br><br>
+                    <input type="checkbox" id="vehicle4" name="submit_answer[]" value="{{ $item->optionD}}">
+                    <label for="vehicle4"> {{ $item->optionD}}</label><br>
+                    @endforeach
+
                     <input type="submit" value="Submit">
+        
                 </form>
-                @endforeach
+            
             </div>
         </div>
     </div>
