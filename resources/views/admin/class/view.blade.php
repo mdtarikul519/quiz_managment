@@ -35,9 +35,9 @@
                                                 <td>
                                                     <div class="table_action">
                                               
-                                                         <a class="btn btn-sm btn-outline-info" href="{{ route('admin.class.edit',$data->id) }}">Edit</i></a>
+                                                         <a class="btn btn-sm btn-outline-info" href="{{ route('admin.classes.edit',$data->id) }}">Edit</i></a>
                                                             {{-- <li><a class="btn btn-sm btn-outline-warning" href="">View</i></a></li> --}}
-                                                       <a class="btn btn-sm btn-outline-danger" onclick="return confirm('Do you want to confirm')" href="{{ route('admin.class.delete', $data->id) }}">Delete</i></a>
+                                                       <a class="btn btn-sm btn-outline-danger" onclick="return confirm('Do you want to confirm')" href="{{ route('admin.classes.delete', $data->id) }}">Delete</i></a>
                                                       
                                                     </div>
                                                 </td>

@@ -21,7 +21,7 @@
         </div>
         <div class="row justify-content-center">
             <div class="col-md-6">
-                <form action="{{ route('admin.class.update',$data->id) }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('admin.classes.update',$data->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="card">
                         <div class="card_header d-flex flex-wrap gap-3 justify-content-between p-4">

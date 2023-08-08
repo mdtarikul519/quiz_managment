@@ -3,7 +3,7 @@
         <div id="main-menu" class="main-menu collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <li class="active">
-                    <a href="{{asset('admin')}}/https://colorlib.com/polygon/elaadmin/index.html"><i
+                    <a href=""><i
                             class="menu-icon fa fa-laptop"></i>Dashboard </a>
                 </li>
                 <li class="menu-item-has-children dropdown">
@@ -11,9 +11,9 @@
                         aria-expanded="false"> <i class="menu-icon fa fa-cogs"></i>class</a>
                     <ul class="sub-menu children dropdown-menu">
                         <li><i class="fa fa-puzzle-piece"></i><a
-                                href="{{route('admin.class.create')}}">Create</a></li>
+                                href="{{route('classes.create')}}">Create</a></li>
                                 <li><i class="fa fa-puzzle-piece"></i><a
-                                    href="{{route('admin.class.view')}}">view</a></li>
+                                    href="{{route('admin.classes.view')}}">view</a></li>
                         
                     </ul>
                 </li>

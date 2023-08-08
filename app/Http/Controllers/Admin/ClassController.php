@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class ClassController extends Controller
 {
-    public function create()
+    public function classcreate()
     {
         return view('admin.class.create');
     }
