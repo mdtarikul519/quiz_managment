@@ -48,7 +48,10 @@ class ExamController extends Controller
           $data =QuestionSubmit::join('questions','question_submits.submit_answer','=','questions.answer')
           ->select('question_submits.*','questions.question_name')
           ->count();
-          // dd($data);   
-                 return view('forntend.quiz_answer_view',compact('data'));
+          $question=Question::join('question_submits','questions.id','=','question_submits.quiz_id')
+          ->select('question_submits.*','questions.id')
+          ->count();
+          // dd($question);   
+                 return view('forntend.quiz_answer_view',compact('data','question'));
      }
 }

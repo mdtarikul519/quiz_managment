@@ -35,6 +35,17 @@ class QuestionSeeder extends Seeder
             'optionD' => ' Barely',
             'answer' => 'Chickpeas',
          ]);
+
+         Question::create([
+
+            'quiz_id' => '1',
+            'question_name' => 'What is your name?',
+            'optionA' => 'tarek',
+            'optionB' => 'shorif',
+            'optionc' => 'joton',
+            'optionD' => ' sajid',
+            'answer' => 'tarek',
+         ]);
         Question::create([
 
             'quiz_id' => '2',

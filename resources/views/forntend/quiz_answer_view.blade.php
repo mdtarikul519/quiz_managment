@@ -5,8 +5,9 @@
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-body">
-               
-                            <h1>Answer:{{ $data }}</h1>
+                             <h1>Total Question:{{ $question }}</h1> 
+                            <h1>Correct:{{ $data }}</h1>
+                            <h2>Incorrect:</h2>
                    
                    
                     </div>
