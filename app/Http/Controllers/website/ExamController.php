@@ -45,13 +45,15 @@ class ExamController extends Controller
 
      public function quiz_answer_view()
      {
-          $data =QuestionSubmit::join('questions','question_submits.submit_answer','=','questions.answer')
-          ->select('question_submits.*','questions.question_name')
-          ->count();
-          $question=Question::join('question_submits','questions.id','=','question_submits.quiz_id')
+
+          $question=Question::join('question_submits','questions.id','=','question_submits.question_id')
           ->select('question_submits.*','questions.id')
           ->count();
+          $currect_result = QuestionSubmit::join('questions','question_submits.submit_answer','=','questions.answer')
+          ->select('question_submits.*','questions.question_name')
+          ->count();
+         
           // dd($question);   
-                 return view('forntend.quiz_answer_view',compact('data','question'));
+                 return view('forntend.quiz_answer_view',compact('currect_result','question'));
      }
 }

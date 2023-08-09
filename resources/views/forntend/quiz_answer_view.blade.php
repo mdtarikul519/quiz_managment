@@ -6,7 +6,7 @@
                 <div class="card">
                     <div class="card-body">
                              <h1>Total Question:{{ $question }}</h1> 
-                            <h1>Correct:{{ $data }}</h1>
+                            <h1>Correct:{{ $currect_result }}</h1>
                             <h2>Incorrect:</h2>
                    
                    
