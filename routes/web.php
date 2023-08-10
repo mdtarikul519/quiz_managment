@@ -51,6 +51,8 @@ Route::group( ['prefix'=>'','middleware'=>['isadmin'],'namespace'=>'Admin'],func
   Route::get('/quiz/edit/{id}','QuizController@edit')->name('admin.quiz.edit');
   Route::post('/quiz/update/{id}','QuizController@update')->name('admin.quiz.update');
   Route::get('/quiz/delete/{id}','QuizController@delete')->name('admin.quiz.delete');
+  Route::get('/quiz/examinner_details/{id}','QuizController@examinner_details')->name('examinner_details');
+  
   
   //questions
   Route::get('/question/create','QuestionController@create')->name('admin.question.create');

@@ -46,18 +46,18 @@
 
                                             <td>
                                                 @if($data->quizall_question)
-                                                {{ $data->quizall_question->where('quiz_id',$data->id)->count('question_name') }}
+                                               Total Questions:  {{ $data->quizall_question->where('quiz_id',$data->id)->count('question_name') }}
+                                               <br> <a href="" class="btn btn-info">View Details</a>
                                             @endif
                                            </td>
                                            <td>
                                             @if($data->total_examiner)
-                                            {{ $data->total_examiner->where('quiz_id',$data->id)->pluck('user_id')->unique()->count('user_id') }}
+                                           Examineer: {{ $data->total_examiner->where('quiz_id',$data->id)->pluck('user_id')->unique()->count('user_id') }}
+                                           <br> <a href="{{ route('examinner_details',$data->id) }}" class="btn btn-info">View Details</a>
                                            @endif
                                            </td>
                                             <td>
                                                 <div class="table_action">
-                                                    <a class="btn btn-sm btn-info"
-                                                    href="{{ route('admin.quiz.edit', $data->id) }}">Examiner</i></a>
                                                     <a class="btn btn-sm btn-outline-info"
                                                         href="{{ route('admin.quiz.edit', $data->id) }}">Edit</i></a>
                                                     {{-- <li><a class="btn btn-sm btn-outline-warning" href="">View</i></a></li> --}}

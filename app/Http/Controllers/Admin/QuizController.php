@@ -4,9 +4,11 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Classes;
+use App\Models\QuestionSubmit;
 use App\Models\Quiz;
 use COM;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
 class QuizController extends Controller
@@ -43,6 +45,32 @@ class QuizController extends Controller
         //    dd($alldata->toArray());
         return view('admin.quize.view', compact('alldata'));
     }
+
+    public function examinner_details($id)
+    {
+        //function_body
+        $quiz = quiz::find($id);
+        // $quiz_result = QuizResult::where('quiz_id', $id)->get();
+
+        $quiz_result = DB::table('quiz_results')
+        ->join('quizzes', 'quiz_results.quiz_id', '=', 'quizzes.id')
+        ->join('questions', 'quiz_results.ques_id', '=', 'questions.id')
+        ->join('users', 'quiz_results.user_id', '=', 'users.id')
+        ->select(
+            'quizzes.*',
+            'users.*',
+            'quiz_results.user_id',
+            DB::raw('SUM(CASE WHEN quiz_results.submit_answer = questions.answer THEN 1 ELSE 0 END) AS marks'),
+            DB::raw('SUM(CASE WHEN quiz_results.ques_Id = questions.id THEN 1 ELSE 0 END) AS questions')
+        )
+        ->where('quiz_results.quiz_id', $id)
+        ->groupBy('quizzes.id', 'quiz_results.user_id') // Group by both quiz ID and user ID to get marks per user for each quiz.
+        ->get();
+    
+ dd($quiz_result->toArray());
+        return view('admin.examinner_details',compact('examinner_details'));
+    }
+    
 
     public function edit($id){
             $data = Quiz::find($id);
