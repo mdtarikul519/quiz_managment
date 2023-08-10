@@ -39,7 +39,7 @@ class QuizController extends Controller
     public function view()
     {
 
-        $alldata = Quiz::with('class_relation')->get();
+        $alldata = Quiz::with('class_relation')->with('quizall_question')->with('total_examiner')->get();
         //    dd($alldata->toArray());
         return view('admin.quize.view', compact('alldata'));
     }

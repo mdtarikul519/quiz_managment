@@ -13,5 +13,7 @@ class Question extends Model
           public function quiz_relation(){
                 return $this->belongsTo(Quiz::class,'quiz_id');
           }
+
+
      
 }

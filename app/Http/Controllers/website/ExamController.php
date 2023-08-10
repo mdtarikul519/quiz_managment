@@ -40,20 +40,21 @@ class ExamController extends Controller
                ]);
                //    dd($request->all());
           }
-          return redirect()->route('quiz_answer_view');
+          return redirect()->route('quiz_answer_view',request('quiz_id'));
      }
 
-     public function quiz_answer_view()
+     public function quiz_answer_view($quiz_id)
      {
-
           $question=Question::join('question_submits','questions.id','=','question_submits.question_id')
           ->select('question_submits.*','questions.id')
           ->count();
-          $currect_result = QuestionSubmit::join('questions','question_submits.submit_answer','=','questions.answer')
+          $currect_result = QuestionSubmit::join('questions','questions.answer','=','question_submits.submit_answer')
           ->select('question_submits.*','questions.question_name')
           ->count();
-         
-          // dd($question);   
-                 return view('forntend.quiz_answer_view',compact('currect_result','question'));
+          $incorrect_result = $question - $currect_result;
+          $total_markes = 100/$question * $currect_result;
+          $quiz_subject = Quiz::where('id',$quiz_id)->first();
+          // dd($quiz_name);   
+          return view('forntend.quiz_answer_view',compact('currect_result','question','incorrect_result','total_markes','quiz_subject'));
      }
 }

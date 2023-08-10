@@ -22,7 +22,9 @@
                                         <th>Class_Name</th>
                                         <th>quiz_subject</th>
                                         <th>teacher</th>
-                                        <th>image</th>
+                                        <th>Image</th>
+                                        <th>Quizall_question</th>
+                                        <th>Total_Examinner</th>
                                         <th style="width: 155px" class="text-center">Action</th>
                                     </tr>
                                 </thead>
@@ -41,9 +43,21 @@
                                             <td>
                                                 <img height="100" width="100" src="/{{ $data->image }}" alt="">
                                             </td>
+
+                                            <td>
+                                                @if($data->quizall_question)
+                                                {{ $data->quizall_question->where('quiz_id',$data->id)->count('question_name') }}
+                                            @endif
+                                           </td>
+                                           <td>
+                                            @if($data->total_examiner)
+                                            {{ $data->total_examiner->where('quiz_id',$data->id)->pluck('user_id')->unique()->count('user_id') }}
+                                           @endif
+                                           </td>
                                             <td>
                                                 <div class="table_action">
-
+                                                    <a class="btn btn-sm btn-info"
+                                                    href="{{ route('admin.quiz.edit', $data->id) }}">Examiner</i></a>
                                                     <a class="btn btn-sm btn-outline-info"
                                                         href="{{ route('admin.quiz.edit', $data->id) }}">Edit</i></a>
                                                     {{-- <li><a class="btn btn-sm btn-outline-warning" href="">View</i></a></li> --}}
