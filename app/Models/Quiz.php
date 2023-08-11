@@ -26,6 +26,8 @@ class Quiz extends Model
     {
         return $this->hasOne(QuestionSubmit::class,'id');
     }
+
+    
 }
 
     

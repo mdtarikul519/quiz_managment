@@ -16,7 +16,7 @@ class QuizController extends Controller
     public function create()
     {
         $class = Classes::get();
-        
+
         return view('admin.quize.create', compact('class'));
     }
 
@@ -48,40 +48,41 @@ class QuizController extends Controller
 
     public function examinner_details($id)
     {
-        //function_body
-        $quiz = quiz::find($id);
+        //function_bod
         // $quiz_result = QuizResult::where('quiz_id', $id)->get();
 
-        $quiz_result = DB::table('quiz_results')
-        ->join('quizzes', 'quiz_results.quiz_id', '=', 'quizzes.id')
-        ->join('questions', 'quiz_results.ques_id', '=', 'questions.id')
-        ->join('users', 'quiz_results.user_id', '=', 'users.id')
+        $quiz_result = QuestionSubmit::
+        join('questions', 'question_submits.question_id', '=', 'questions.id')
+
+        ->join('quizzes', 'question_submits.quiz_id', '=', 'quizzes.id')
+
         ->select(
-            'quizzes.*',
-            'users.*',
-            'quiz_results.user_id',
-            DB::raw('SUM(CASE WHEN quiz_results.submit_answer = questions.answer THEN 1 ELSE 0 END) AS marks'),
-            DB::raw('SUM(CASE WHEN quiz_results.ques_Id = questions.id THEN 1 ELSE 0 END) AS questions')
-        )
-        ->where('quiz_results.quiz_id', $id)
-        ->groupBy('quizzes.id', 'quiz_results.user_id') // Group by both quiz ID and user ID to get marks per user for each quiz.
+            'quizzes.quiz_name',
+            'question_submits.user_id',
+            DB::raw('SUM(CASE WHEN question_submits.submit_answer = questions.answer THEN 1 ELSE 0 END) AS marks'),
+            DB::raw('SUM(CASE WHEN question_submits.question_id = questions.id THEN 1 ELSE 0 END) AS questions')
+            )
+            ->where('question_submits.quiz_id', $id)
+            ->groupBy('quizzes.quiz_name', 'question_submits.user_id') 
+            ->with('users_reations')
         ->get();
-    
- dd($quiz_result->toArray());
-        return view('admin.examinner_details',compact('examinner_details'));
-    }
-    
-
-    public function edit($id){
-            $data = Quiz::find($id);
-            $classes = Classes::get();
-            // dd( $data);
-            return view('admin.quize.edit',compact('data','classes'));
+        // dd($quiz_result);
+        return view('admin.examinner_details', compact('quiz_result'));
     }
 
 
-    public function update(Request $request, $id){
-          
+    public function edit($id)
+    {
+        $data = Quiz::find($id);
+        $classes = Classes::get();
+        // dd( $data);
+        return view('admin.quize.edit', compact('data', 'classes'));
+    }
+
+
+    public function update(Request $request, $id)
+    {
+
         $data = Quiz::find($id);
         $data->class_id = $request->class_id;
         $data->quiz_name = $request->quiz_name;
@@ -93,12 +94,13 @@ class QuizController extends Controller
         $data->update();
 
         return redirect()->route('admin.quiz.view')->with('success', 'data update successfully');
-    
+
     }
 
-    public function delete($id){
-            Quiz::where('id', $id)->delete();
+    public function delete($id)
+    {
+        Quiz::where('id', $id)->delete();
 
-            return redirect()->back()->with('success', 'data delete successfully');
+        return redirect()->back()->with('success', 'data delete successfully');
     }
 }

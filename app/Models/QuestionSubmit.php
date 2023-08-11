@@ -13,4 +13,8 @@ class QuestionSubmit extends Model
     public function question_relation(){
         return $this->belongsTo(Question::class,'question_id');
     } 
+    public function users_reations()
+    {
+        return $this->hasMany(User::class,'id','user_id');
+    }
 }  

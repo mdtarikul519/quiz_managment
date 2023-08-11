@@ -11,17 +11,22 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($examinner_details as $data )
+            @foreach ($quiz_result as $data )
                 
-            @endforeach
             <tr>
-                <td>{{ $data->name }}</td>
+                <td>
+                    @foreach($data->users_reations as $item)
+                    {{ $item->name }}
+                    @endforeach
+
+                </td>
                 <td>{{ $data->marks}}out of  {{ $data->questions }}</td>
                 <td>
                     
                     <a class="btn btn-danger" href="">Delete</a>
                 </td>
             </tr>
+            @endforeach
         </tbody>
 
     </table>
