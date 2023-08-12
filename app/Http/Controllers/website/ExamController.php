@@ -17,15 +17,6 @@ class ExamController extends Controller
           return view('forntend.examlist', compact('data'));
      }
 
-     public function quiz_question($id)
-     {
-          $item = Quiz::where('id', $id)->find($id);
-          $data = Question::where('quiz_id', $item->id)->get();
-          //     dd($data->toArray());
-          return view('forntend.quiz_question', compact('data'));
-     }
-
-
      public function quiz_question_store(Request $request)
      {
 
@@ -42,6 +33,15 @@ class ExamController extends Controller
           }
           return redirect()->route('quiz_answer_view',request('quiz_id'));
      }
+     public function quiz_question_view($id)
+     {
+          $item = Quiz::where('id', $id)->find($id);
+          $data = Question::where('quiz_id', $item->id)->get();
+          //     dd($data->toArray());
+          return view('forntend.quiz_question', compact('data'));
+     }
+
+
 
      public function quiz_answer_view($quiz_id)
      {
@@ -57,4 +57,19 @@ class ExamController extends Controller
           // dd($quiz_name);   
           return view('forntend.quiz_answer_view',compact('currect_result','question','incorrect_result','total_markes','quiz_subject'));
      }
+
+
+     public function exam_answer_view($id){
+
+          $result_details=QuestionSubmit::join('questions', 'question_submits.question_id', '=', 'questions.id')
+          ->select('question_submits.*','questions.*')
+          ->where('question_submits.quiz_id','=',$id)
+          ->get();
+          $quiz=Quiz::where('id',$id)->first();
+          // dd($result_details->toArray());
+          // dd($quiz);
+          //function_body
+          return view('forntend.exam_answer_view',compact('result_details','quiz'));
+      }
+     
 }

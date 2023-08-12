@@ -10,7 +10,7 @@
                             <h1>Correct:{{ $currect_result }}</h1>
                             <h2>Incorrect:{{ $incorrect_result }}</h2>
                             <h2>Total Markes:{{ $total_markes }}</h2>
-                   
+                          <a href="{{ route('exam_answer_view', $quiz_subject->id) }}"><button class="btn btn-info">Details</button></a>
                     </div>
                 </div>
 

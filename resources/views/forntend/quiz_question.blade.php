@@ -1,10 +1,11 @@
 @extends('forntend.layout.website')
 @section('content')
-    <div class="container">
-        <div class="row">
+    <div class="container" >
+        <div class="row" >
             <div class="col-md-6">  
     
-            <form action="{{ route('quiz_question_store') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('quiz_question_store') }}" method="POST" enctype="multipart/form-data" 
+              style="text-color:black; padding-left:120px">
                 @csrf
                 @foreach ( $data as $item ) 
            {{-- @dd($item->optionD) --}}

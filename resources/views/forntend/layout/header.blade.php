@@ -36,7 +36,7 @@
         <![endif]-->
 
     <!-- Header Area Start -->
-    <header class="top">
+    <header class="top" style="background-color:Tomato;">
         <div class="header-top">
             <div class="container">
                 <div class="row">
@@ -75,25 +75,12 @@
                                     <nav>
                                         <ul>
                                             @auth
-                                                <li><a href="{{ asset('website') }}/index.html">Home</a> </li>
-                                                <li><a href="{{ asset('website') }}/about.html">About</a></li>
-                                                <li><a href="{{ asset('website') }}/course.html">courses</a>
 
-                                                </li>
-
-                                                <li class="hidden-sm"><a
-                                                        href="{{ asset('website') }}/teacher.html">teacher</a>
-
-                                                </li>
-                                                {{-- <li><a href="{{ asset('website') }}/blog.html">blog</a> --}}
-
-                                                </li>
-                                                <li><a href="{{ asset('website') }}/contact.html">Contact</a></li>
                                                 <li><a href="{{ route('examlist') }}">Exam</a>
                                                     @guest
                                                         @if (Auth::has('login'))
                                                     <li><a href="{{ route('login') }}">login</a></li>
-                            @endif
+                                @endif
                             @if (Auth::has('register'))
                                 <li><a href="{{ route('register') }}">signup</a></li>
                             @endif
@@ -110,6 +97,7 @@
                                                                  document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
+                                    <a class="dropdown-item" href="">view profile</a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
@@ -152,21 +140,10 @@
                 <div class="main-menu">
                     <nav>
                         <ul>
-
-                            <li><a href="{{ asset('website') }}/index.html">Home</a> </li>
-                            <li><a href="{{ asset('website') }}/about.html">About</a></li>
-                            <li><a href="{{ asset('website') }}/course.html">courses</a>
-
-                            </li>
-
-                            <li class="hidden-sm"><a href="{{ asset('website') }}/teacher.html">teacher</a>
-
-                            </li>
                             {{-- <li><a href="{{ asset('website') }}/blog.html">blog</a> --}}
 
-                            </li>
-                            <li><a href="{{ asset('website') }}/contact.html">Contact</a></li>
-                            <li><a href="{{ route('examlist') }}">Exam</a>
+
+                            <li><a href="{{ route('examlist') }}">Exam</a></li>
 
                             <li><a href="{{ route('login') }}">login</a></li>
 

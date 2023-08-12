@@ -23,10 +23,10 @@ class StudentMiddleware
             {
                 return $next($request);
             }
-            else
-            {
-                return redirect('dashboard');
+             else{
+                return redirect('dashboard'); 
             }
+           
         }
         else
         {

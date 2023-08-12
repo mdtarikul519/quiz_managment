@@ -20,7 +20,7 @@
                     @endforeach
 
                 </td>
-                <td>{{ $data->marks}}out of  {{ $data->questions }}</td>
+                <td>{{ $data->marks}} out of {{ $data->questions }}</td>
                 <td>
                     
                     <a class="btn btn-danger" href="">Delete</a>
