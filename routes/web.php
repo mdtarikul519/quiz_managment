@@ -30,6 +30,7 @@ Route::group( ['prefix'=>'','middleware'=>['istudent'],'namespace'=>'website'],f
   Route::Post('/quiz_question_store','ExamController@quiz_question_store')->name('quiz_question_store');
   Route::get('/quiz_answer_view/{quiz_id}','ExamController@quiz_answer_view')->name('quiz_answer_view');
   Route::get('/exam_answer_view{id}','ExamController@exam_answer_view')->name('exam_answer_view');
+  Route::get('/profile','WebsiteController@profile')->name('profile');
 });
 
 

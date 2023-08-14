@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-                <div class="card">
+                <div class="card" style="justify-content: center">
                     <div class="card-body">
                             <h1>quiz Name:{{ $quiz_subject->quiz_name }}</h1>
                              <h1>Total Question:{{ $question }}</h1> 

@@ -1,6 +1,6 @@
 @extends('forntend.layout.website')
 @section('content')
-    <div class="container">
+    <div class="container" style="margin-left:120px; justify-content: center;">
         <div class="row">
             <div class="col-md-6">
 

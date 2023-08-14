@@ -12,4 +12,8 @@ class WebsiteController extends Controller
     {
         return view('forntend.websitehome');
     }
+
+    public function profile(){
+        return view('forntend.profile');
+    }
 }
