@@ -22,6 +22,7 @@ class CreateQuestionsTable extends Migration
             $table->string('optionC',100)->nullable();
             $table->string('optionD',100)->nullable();
             $table->string('answer',100)->nullable();
+            $table->string('multipal',100)->nullable();
             $table->timestamps();
         });
     }

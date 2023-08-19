@@ -29,6 +29,18 @@ class QuestionController extends Controller
         $data->optionD = $request->optionD;
         $data->answer = $request->answer;
 
+        if ($request->multipal == "0") {
+            $data->answer = $request->answer;
+            $data->save();
+        } else if ($request->multipal == "1") {
+            $tarek_multipal = explode(',', request()->answer);
+            $decode = json_encode($tarek_multipal);
+            $tarek_multipal = ($decode);
+            $data->multipal = 1;
+            $data->save();
+            //  dd(request()->all());
+        }
+
         $data->save();
         //    dd($data);
         return redirect()->route('admin.question.view')->with('success', 'data insert successfully');
@@ -50,25 +62,27 @@ class QuestionController extends Controller
     }
 
 
-    public function update(Request $request, $id){
-          $data = Question::find($id);
+    public function update(Request $request, $id)
+    {
+        $data = Question::find($id);
 
-          $data->quiz_id = $request->quiz_id;
-          $data->question_name = $request->question_name;
-          $data->optionA = $request->optionA;
-          $data->optionB = $request->optionB;
-          $data->optionC = $request->optionC;
-          $data->optionD = $request->optionD;
-          $data->answer = $request->answer;
-  
-          $data->update();
-          //    dd($data);
-          return redirect()->route('admin.question.view')->with('success', 'data update successfully');
+        $data->quiz_id = $request->quiz_id;
+        $data->question_name = $request->question_name;
+        $data->optionA = $request->optionA;
+        $data->optionB = $request->optionB;
+        $data->optionC = $request->optionC;
+        $data->optionD = $request->optionD;
+        $data->answer = $request->answer;
+
+        $data->update();
+        //    dd($data);
+        return redirect()->route('admin.question.view')->with('success', 'data update successfully');
     }
 
 
-    public function delete($id){
-          Question::where('id',$id)->delete();
-          return redirect()->back();
+    public function delete($id)
+    {
+        Question::where('id', $id)->delete();
+        return redirect()->back();
     }
 }
