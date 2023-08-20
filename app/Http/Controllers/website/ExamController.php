@@ -66,7 +66,7 @@ class ExamController extends Controller
 
           // return view()
 
-          return redirect()->route('quiz_answer_view', request('quiz_id'),compact('questions'));
+          return view('forntend.quiz_answer_view',compact('questions'));
      }
      public function quiz_question_view($id)
      {
