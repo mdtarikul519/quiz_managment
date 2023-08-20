@@ -19,6 +19,8 @@ class CreateQuestionSubmitsTable extends Migration
             $table->bigInteger('quiz_id')->nullable();
             $table->bigInteger('question_id')->nullable();
             $table->string('submit_answer', 100)->nullable();
+            $table->string('right_ans', 100)->nullable();
+            
             $table->timestamps();
         });
     }

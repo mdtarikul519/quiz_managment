@@ -14,6 +14,11 @@ class Question extends Model
                 return $this->belongsTo(Quiz::class,'quiz_id');
           }
 
+          public function submission(){
+            return $this->hasOne(QuestionSubmit::class,'question_id','id');
+      }
+  
+
 
      
 }

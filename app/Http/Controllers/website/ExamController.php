@@ -20,18 +20,53 @@ class ExamController extends Controller
      public function quiz_question_store(Request $request)
      {
 
-          foreach (request('question_id') as $key => $value) {
+          foreach ($request->question_id as $key => $value) {
 
-               QuestionSubmit::create([
-                    'user_id' => Auth::user()->id,
-                    'quiz_id' => request('quiz_id'),
-                    'question_id' => $value,
-                    'submit_answer' => $request->submit_answer[$key],
+               $submission = new QuestionSubmit();
+               $submission->question_id = $value;
+               $submission->quiz_id = $request->quiz_id;
+               $submission->user_id = Auth::user()->id;
+               // 'submit_answer' => $request->submit_answer[$key],
 
-               ]);
-               //    dd($request->all());
+
+               $question = Question::find($value);
+               
+               if ($question->multipal == '1') {
+                    $answer_arrey = [];
+
+                    $decoded = json_decode($question->answer);
+
+                    foreach ($decoded as $answer) {
+                       array_push($answer_arrey, $request->submit_answer[$key]);
+                           if ($answer = $request->submit_answer[$key]) {
+                              $submission->right_ans = '1';
+                            } else {
+                              $submission->right_ans = '0';
+                             }
+                          }
+                    $submission->submit_answer = json_encode($answer_arrey);
+                    $submission->save();
+                     } else {
+                         $submission->submit_answer = $request->submit_answer[$key];
+                      if ($question->answer = $request->submit_answer[$key]) {
+                         $submission->right_ans = '1';
+                     } else {
+                         $submission->right_ans = '0';
+                        }
+                    $submission->save();
+               }
+               $submission->save();
+
+               $questions = Question::where('quiz_id', $request->quiz_id)
+                    ->with("submission")
+                    ->get();
           }
-          return redirect()->route('quiz_answer_view',request('quiz_id'));
+
+          //    dd($request->all());
+
+          // return view()
+
+          return redirect()->route('quiz_answer_view', request('quiz_id'),compact('questions'));
      }
      public function quiz_question_view($id)
      {
@@ -45,31 +80,31 @@ class ExamController extends Controller
 
      public function quiz_answer_view($quiz_id)
      {
-          $question=Question::join('question_submits','questions.id','=','question_submits.question_id')
-          ->select('question_submits.*','questions.id')
-          ->count();
-          $currect_result = QuestionSubmit::join('questions','questions.answer','=','question_submits.submit_answer')
-          ->select('question_submits.*','questions.question_name')
-          ->count();
+          $question = Question::join('question_submits', 'questions.id', '=', 'question_submits.question_id')
+               ->select('question_submits.*', 'questions.id')
+               ->count();
+          $currect_result = QuestionSubmit::join('questions', 'questions.answer', '=', 'question_submits.submit_answer')
+               ->select('question_submits.*', 'questions.question_name')
+               ->count();
           $incorrect_result = $question - $currect_result;
-          $total_markes = 100/$question * $currect_result;
-          $quiz_subject = Quiz::where('id',$quiz_id)->first();
+          $total_markes = 100 / $question * $currect_result;
+          $quiz_subject = Quiz::where('id', $quiz_id)->first();
           // dd($quiz_name);   
-          return view('forntend.quiz_answer_view',compact('currect_result','question','incorrect_result','total_markes','quiz_subject'));
+          return view('forntend.quiz_answer_view', compact('currect_result', 'question', 'incorrect_result', 'total_markes', 'quiz_subject'));
      }
 
 
-     public function exam_answer_view($id){
+     public function exam_answer_view($id)
+     {
 
-          $result_details=QuestionSubmit::join('questions', 'question_submits.question_id', '=', 'questions.id')
-          ->select('question_submits.*','questions.*')
-          ->where('question_submits.quiz_id','=',$id)
-          ->get();
-          $quiz=Quiz::where('id',$id)->first();
+          $result_details = QuestionSubmit::join('questions', 'question_submits.question_id', '=', 'questions.id')
+               ->select('question_submits.*', 'questions.*')
+               ->where('question_submits.quiz_id', '=', $id)
+               ->get();
+          $quiz = Quiz::where('id', $id)->first();
           // dd($result_details->toArray());
           // dd($quiz);
           //function_body
-          return view('forntend.exam_answer_view',compact('result_details','quiz'));
-      }
-     
+          return view('forntend.exam_answer_view', compact('result_details', 'quiz'));
+     }
 }

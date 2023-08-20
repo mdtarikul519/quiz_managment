@@ -35,7 +35,7 @@ class QuestionController extends Controller
         } else if ($request->multipal == "1") {
             $tarek_multipal = explode(',', request()->answer);
             $decode = json_encode($tarek_multipal);
-            $tarek_multipal = ($decode);
+            $tarek_multipal = $decode;
             $data->multipal = 1;
             $data->save();
             //  dd(request()->all());
