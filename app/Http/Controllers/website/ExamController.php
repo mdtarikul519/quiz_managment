@@ -57,9 +57,17 @@ class ExamController extends Controller
                }
                $submission->save();
 
-               $questions = Question::where('quiz_id', $request->quiz_id)
-                    ->with("submission")
-                    ->get();
+               $question = Question::join('question_submits', 'questions.id', '=', 'question_submits.question_id')
+               ->select('question_submits.*', 'questions.id')
+               ->count();
+               $currect_result = QuestionSubmit::join('questions', 'questions.answer', '=', 'question_submits.submit_answer')
+                    ->select('question_submits.*', 'questions.question_name')
+                    ->count();
+               $incorrect_result = $question - $currect_result;
+               $total_markes = 100 / $question * $currect_result;
+               $quiz_subject = Quiz::where('id', $request->quiz_id)->first();
+               // dd($quiz_name);   
+               return view('forntend.quiz_answer_view', compact('currect_result', 'question', 'incorrect_result', 'total_markes', 'quiz_subject'));
           }
 
           //    dd($request->all());
@@ -100,6 +108,7 @@ class ExamController extends Controller
           $result_details = QuestionSubmit::join('questions', 'question_submits.question_id', '=', 'questions.id')
                ->select('question_submits.*', 'questions.*')
                ->where('question_submits.quiz_id', '=', $id)
+               ->where('question_submits.user_id', '=', Auth::user()->id)
                ->get();
           $quiz = Quiz::where('id', $id)->first();
           // dd($result_details->toArray());

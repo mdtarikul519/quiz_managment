@@ -46,6 +46,22 @@
                                        <label for="">Answer</label>
                                        <input type="text" value="{{ $editdata->answer }}" name="answer" class="form-control">
                               </div>
+
+                       
+
+
+                       <div class="form-check">
+                         <input class="form-check-input" type="radio" name="multipal" value="0" id="signal1">
+                         <label class="form-check-label" for="signal1">
+                           singal
+                         </label>
+                       </div>
+                       <div class="form-check">
+                         <input class="form-check-input" type="radio" name="multipal" value="1" id="multipal2">
+                         <label class="form-check-label" for="multipal2">
+                           multipal
+                         </label>
+                       </div>
                             
                               <button>update</button>
                         </form>

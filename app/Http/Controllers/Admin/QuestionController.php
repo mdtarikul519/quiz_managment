@@ -27,7 +27,7 @@ class QuestionController extends Controller
         $data->optionB = $request->optionB;
         $data->optionC = $request->optionC;
         $data->optionD = $request->optionD;
-        $data->answer = $request->answer;
+        // $data->answer = $request->answer;
 
         if ($request->multipal == "0") {
             $data->answer = $request->answer;
@@ -35,7 +35,7 @@ class QuestionController extends Controller
         } else if ($request->multipal == "1") {
             $tarek_multipal = explode(',', request()->answer);
             $decode = json_encode($tarek_multipal);
-            $tarek_multipal = $decode;
+            $data->answer = $decode;
             $data->multipal = 1;
             $data->save();
             //  dd(request()->all());
@@ -72,7 +72,17 @@ class QuestionController extends Controller
         $data->optionB = $request->optionB;
         $data->optionC = $request->optionC;
         $data->optionD = $request->optionD;
-        $data->answer = $request->answer;
+        if ($request->multipal == "0") {
+            $data->answer = $request->answer;
+            $data->save();
+        } else if ($request->multipal == "1") {
+            $tarek_multipal = explode(',', request()->answer);
+            $decode = json_encode($tarek_multipal);
+            $data->answer = $decode;
+            $data->multipal = 1;
+            $data->save();
+            //  dd(request()->all());
+        }
 
         $data->update();
         //    dd($data);

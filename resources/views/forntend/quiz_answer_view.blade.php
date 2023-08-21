@@ -5,8 +5,7 @@
             <div class="col-md-6">
                 <div class="card" style="justify-content: center">
                     <div class="card-body">
-                  @dd($questions)
-                        @foreach ($questions as $question )
+                 
                    
                         <h1>quiz Name:{{ $quiz_subject->quiz_name }}</h1>
                          <h1>Total Question:{{ $question }}</h1> 
@@ -14,7 +13,7 @@
                         <h2>Incorrect:{{ $incorrect_result }}</h2>
                         <h2>Total Markes:{{ $total_markes }}</h2>
                       <a href="{{ route('exam_answer_view', $quiz_subject->id) }}"><button class="btn btn-info">Details</button></a>
-                        @endforeach
+                        
                     </div>
                 </div>
 
