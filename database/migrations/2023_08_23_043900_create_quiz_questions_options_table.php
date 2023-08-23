@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateQuestionSubmitsTable extends Migration
+class CreateQuizQuestionsOptionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,12 @@ class CreateQuestionSubmitsTable extends Migration
      */
     public function up()
     {
-        Schema::create('question_submits', function (Blueprint $table) {
+        Schema::create('quiz_questions_options', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('user_id')->nullable();
             $table->bigInteger('quiz_id')->nullable();
             $table->bigInteger('question_id')->nullable();
-            $table->string('submit_answer', 100)->nullable();
-            $table->string('right_ans', 100)->nullable();
-            
+            $table->string('title')->nullable();
+            $table->boolean('is_correct')->nullable();
             $table->timestamps();
         });
     }
@@ -32,6 +30,6 @@ class CreateQuestionSubmitsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('question_submits');
+        Schema::dropIfExists('quiz_questions_options');
     }
 }

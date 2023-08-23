@@ -16,24 +16,18 @@ class QuizSeeder extends Seeder
     {
         Quiz::truncate();
         Quiz::create([
-            'class_id' => '1',
-            'quiz_name' => 'math',
-            'teacher' => 'Rana',
-            'image' =>'quiz/tarek.jpg'
+            'title' => 'c programing languge',
+            
 
         ]);
 
         Quiz::create([
-            'class_id' => '2',
-            'quiz_name' => 'English',
-            'teacher' => 'sorif',
-            'image' =>'quiz/sorif.png'
+            'title' => 'php programing languge',
+            
         ]);
         Quiz::create([
-            'class_id' => '3',
-            'quiz_name' => 'php Programing',
-            'teacher' => 'tarek',
-            'image' =>'quiz/joton.png'
+            'title' => 'java programing languge',
+            
         ]);
     }
 }

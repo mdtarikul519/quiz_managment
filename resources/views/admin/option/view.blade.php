@@ -11,6 +11,8 @@
                                     <th>No</th>
                                     <th>quiz_name</th>
                                     <th>question_name</th>
+                                    <th>option</th>
+                                    <th>Is_correct</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -21,6 +23,11 @@
                                         <td>
                                             @if ($item->quiz_relation)
                                                 {{ $item->quiz_relation->title }}
+                                            @endif
+                                        </td>
+                                        <td>
+                                            @if ($item->question_relation)
+                                                {{ $item->question_relation->title }}
                                             @endif
                                         </td>
                                         <td>{{ $item->title }}</td>

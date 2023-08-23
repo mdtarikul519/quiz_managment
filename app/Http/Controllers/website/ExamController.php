@@ -19,7 +19,10 @@ class ExamController extends Controller
 
      public function quiz_question_store(Request $request)
      {
-
+          // dd($request->submit_answer);
+          foreach($request->submit_answer as $key => $value){
+            dd($key,$value);
+          }
           foreach ($request->question_id as $key => $value) {
 
                $submission = new QuestionSubmit();
@@ -30,36 +33,36 @@ class ExamController extends Controller
 
 
                $question = Question::find($value);
-               
+
                if ($question->multipal == '1') {
                     $answer_arrey = [];
 
                     $decoded = json_decode($question->answer);
 
                     foreach ($decoded as $answer) {
-                       array_push($answer_arrey, $request->submit_answer[$key]);
-                           if ($answer = $request->submit_answer[$key]) {
+                         array_push($answer_arrey, $answer);
+                         if ($answer = $request->submit_answer[$key]) {
                               $submission->right_ans = '1';
-                            } else {
+                         } else {
                               $submission->right_ans = '0';
-                             }
-                          }
+                         }
+                    }
                     $submission->submit_answer = json_encode($answer_arrey);
                     $submission->save();
-                     } else {
-                         $submission->submit_answer = $request->submit_answer[$key];
-                      if ($question->answer = $request->submit_answer[$key]) {
+               } else {
+                    $submission->submit_answer = $request->submit_answer[$key];
+                    if ($question->answer = $request->submit_answer[$key]) {
                          $submission->right_ans = '1';
-                     } else {
+                    } else {
                          $submission->right_ans = '0';
-                        }
+                    }
                     $submission->save();
                }
                $submission->save();
 
                $question = Question::join('question_submits', 'questions.id', '=', 'question_submits.question_id')
-               ->select('question_submits.*', 'questions.id')
-               ->count();
+                    ->select('question_submits.*', 'questions.id')
+                    ->count();
                $currect_result = QuestionSubmit::join('questions', 'questions.answer', '=', 'question_submits.submit_answer')
                     ->select('question_submits.*', 'questions.question_name')
                     ->count();
@@ -74,7 +77,7 @@ class ExamController extends Controller
 
           // return view()
 
-          return view('forntend.quiz_answer_view',compact('questions'));
+          return view('forntend.quiz_answer_view', compact('questions'));
      }
      public function quiz_question_view($id)
      {
