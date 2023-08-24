@@ -31,8 +31,33 @@ class OptionController extends Controller
     }
 
     public function view(){
-        $alldata = Quiz_questions_options::with('question_relation')->get();
-        dd($alldata);
+        $alldata = Quiz_questions_options::with('quiz_relation','question_relation')->get();
+        // dd($alldata);
         return view('admin.option.view',compact('alldata'));
     }
+
+    public function edit($id){
+        $alldata = Quiz_questions_options::find($id);
+        $quiz = Quiz::get();
+        $questions = Quiz_questions::get();
+        // dd($alldata, $quiz, $questions);
+        return view('admin.option.edit',compact('alldata','quiz','questions'));
+        
+    }
+
+   public function update(request $request, $id){
+
+    $updatedata = Quiz_questions_options::find($id);
+    $updatedata->quiz_id = $request->quiz_id;
+    $updatedata->question_id = $request->question_id;
+    $updatedata->title =$request->title;
+    $updatedata->is_correct =$request->is_correct;    
+    $updatedata->update();
+    return redirect()->route('admin.option.view');
+   }
+
+   public function delete($id){
+     Quiz_questions_options::where('id', $id)->delete();
+     return redirect()->back();
+   }
 }

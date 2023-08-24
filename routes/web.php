@@ -25,12 +25,14 @@ Auth::routes();
 Route::group(['prefix' => '', 'middleware' => ['istudent'], 'namespace' => 'website'], function () {
   Route::get('/', 'WebsiteController@index');
 
-  Route::get('/examlist', 'ExamController@examlist')->name('examlist');
-  Route::get('/quiz_question/{id}', 'ExamController@quiz_question_view')->name('quiz_question');
-  Route::Post('/quiz_question_store', 'ExamController@quiz_question_store')->name('quiz_question_store');
-  Route::get('/quiz_answer_view/{quiz_id}', 'ExamController@quiz_answer_view')->name('quiz_answer_view');
-  Route::get('/exam_answer_view{id}', 'ExamController@exam_answer_view')->name('exam_answer_view');
-  Route::get('/profile', 'WebsiteController@profile')->name('profile');
+  Route::get('/quiz_view', 'ExamController@quiz_view')->name('quiz');
+  Route::get('/quiz_question/{id}', 'ExamController@quiz_question_option_view')->name('quiz_question');
+
+  // Route::get('/quiz_exam/{id}', 'ExamController@quiz_question_view')->name('quiz_question');
+  // Route::Post('/quiz_question_store', 'ExamController@quiz_question_store')->name('quiz_question_store');
+  // Route::get('/quiz_answer_view/{quiz_id}', 'ExamController@quiz_answer_view')->name('quiz_answer_view');
+  // Route::get('/exam_answer_view{id}', 'ExamController@exam_answer_view')->name('exam_answer_view');
+  // Route::get('/profile', 'WebsiteController@profile')->name('profile');
 });
 
 

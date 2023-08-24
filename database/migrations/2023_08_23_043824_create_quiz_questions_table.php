@@ -17,7 +17,7 @@ class CreateQuizQuestionsTable extends Migration
             $table->id();
             $table->bigInteger('quiz_id')->nullable();
             $table->string('title',100)->nullable();
-            $table->float('marke')->nullable();
+            $table->integer('mark')->nullable();
             $table->timestamps();
         });
     }

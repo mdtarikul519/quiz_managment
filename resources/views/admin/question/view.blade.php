@@ -11,6 +11,7 @@
                                     <th>No</th>
                                     <th>quiz_name</th>
                                     <th>question_name</th>
+                                    <th>marke</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -24,7 +25,7 @@
                                             @endif
                                         </td>
                                         <td>{{ $item->title }}</td>
-                                        <td>{{ $item->is_correct }}</td>
+                                        <td>{{ $item->marke }}</td>
                                         <td>
                                             <div class="table_action">
 

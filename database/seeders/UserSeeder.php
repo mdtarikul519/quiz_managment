@@ -19,7 +19,7 @@ class UserSeeder extends Seeder
         User::create([
             'name' => 'tarek',
             'role_id' => '1',
-            'email' => 'tarekmd519@gmail.com',
+            'email' => 'tarikulmd519@gmail.com',
             'phon_number' => 01721251533,
             'image' => 'quiz/sorif.png',
             'password' => bcrypt('12345678')
@@ -31,7 +31,7 @@ class UserSeeder extends Seeder
             'email' => 'sorif@gmail.com',
             'phon_number' => 01721251533,
             'image' => 'quiz/sorif.png',
-            'password' =>bcrypt('12345678')
+            'password' => bcrypt('12345678')
         ]);
         User::create([
             'name' => 'joton',
@@ -39,7 +39,54 @@ class UserSeeder extends Seeder
             'email' => 'joton@gmail.com',
             'phon_number' => 01721251533,
             'image' => 'quiz/sorif.png',
-            'password' =>bcrypt('12345678')
+            'password' => bcrypt('12345678')
+        ]);
+
+        User::create([
+            'name' => 'rana',
+            'role_id' => '2',
+            'email' => 'rana@gmail.com',
+            'phon_number' => 01721251533,
+            'image' => 'quiz/rana.png',
+            'password' => bcrypt('12345678')
+        ]);
+        User::create([
+            'name' => 'sajid',
+            'role_id' => '2',
+            'email' => 'sajid@gmail.com',
+            'phon_number' => 01721252533,
+            'image' => 'quiz/sajid.png',
+            'password' => bcrypt('12345678')
+        ]);
+
+
+
+
+
+        User::create([
+            'name' => 'yeamin',
+            'role_id' => '2',
+            'email' => 'yeamin@gmail.com',
+            'phon_number' => 01721251533,
+            'image' => 'quiz/yeamin.png',
+            'password' => bcrypt('12345678')
+        ]);
+
+        User::create([
+            'name' => 'sagir',
+            'role_id' => '2',
+            'email' => 'sagir@gmail.com',
+            'phon_number' => 01721251533,
+            'image' => 'quiz/sagir.png',
+            'password' => bcrypt('12345678')
+        ]);
+        User::create([
+            'name' => 'mahabub',
+            'role_id' => '2',
+            'email' => 'mahabub@gmail.com',
+            'phon_number' => 01721252533,
+            'image' => 'quiz/mahabub.png',
+            'password' => bcrypt('12345678')
         ]);
     }
 }

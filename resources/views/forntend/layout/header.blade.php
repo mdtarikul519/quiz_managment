@@ -76,11 +76,11 @@
                                         <ul>
                                             @auth
 
-                                                <li><a href="{{ route('examlist') }}">Exam</a>
+                                            <li><a href="{{ route('quiz') }}">Exam</a>
                                                     @guest
                                                         @if (Auth::has('login'))
                                                     <li><a href="{{ route('login') }}">login</a></li>
-                                @endif
+                            @endif
                             @if (Auth::has('register'))
                                 <li><a href="{{ route('register') }}">signup</a></li>
                             @endif
@@ -97,7 +97,7 @@
                                                                  document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
-                                    <a class="dropdown-item" href="{{route('profile')}}">view profile</a>
+                                    {{-- <a class="dropdown-item" href="{{ route('profile') }}">view profile</a> --}}
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf

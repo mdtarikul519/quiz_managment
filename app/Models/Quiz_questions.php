@@ -12,5 +12,12 @@ class Quiz_questions extends Model
     public function quiz_relation(){
         return $this->belongsTo(Quiz::class,'quiz_id');
   }
+
+  public function question_option_relation(){
+    return $this->hasMany(Quiz_questions_options::class,'question_id');
+}
+
+
+   
 }
  

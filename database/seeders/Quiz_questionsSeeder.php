@@ -15,71 +15,65 @@ class Quiz_questionsSeeder extends Seeder
     public function run()
     {
         Quiz_questions::truncate();
-        Quiz_questions::create([   
-        'quiz_id' => '1',
-        'title' => 'Who is the father of c programing?',
-        'marke' =>'1'
-    ]);
-    Quiz_questions::create([
+        Quiz_questions::create([
+            'quiz_id' => '1',
+            'title' => 'Who is the father of c programing?',
+            'mark' => '1'
+        ]);
+        Quiz_questions::create([
 
-        'quiz_id' => '1',
-        'title' => 'Write a program in C?',
-        'marke' =>'1'
-     ]);
+            'quiz_id' => '1',
+            'title' => 'Which of the following are unary operators in C?',
+            'mark' => '1'
+        ]);
 
-     Quiz_questions::create([
+        Quiz_questions::create([
 
-        'quiz_id' => '1',
-        'title' => 'C Program to find sum of array elements.',
-        'marke' =>'1'
-     ]);
-
-
+            'quiz_id' => '1',
+            'title' => 'The keyword used to transfer control from a function back to the calling function is.',
+            'mark' => '1'
+        ]);
 
 
 
 
-     Quiz_questions::create([
-
-        'quiz_id' => '2',
-        'title' => 'Who is the father of c php?',
-        'marke' =>'1'
-    ]);
-    Quiz_questions::create([
-
-        'quiz_id' => '2',
-        'title' => 'PHP is Scripting language',
-        'marke' =>'1'
-    ]);
-    Quiz_questions::create([
-
-        'quiz_id' => '2',
-        'title' => 'php Program to find sum of array elements.',
-        'marke' =>'1'
-    ]);
 
 
+        Quiz_questions::create([
+
+            'quiz_id' => '2',
+            'title' => 'Who is the father of php?',
+            'mark' => '1'
+        ]);
+        Quiz_questions::create([
+
+            'quiz_id' => '2',
+            'title' => 'What are the popular frameworks in PHP ?',
+            'mark' => '1'
+        ]);
+        Quiz_questions::create([
+
+            'quiz_id' => '2',
+            'title' => 'What are the different types of loop in PHP ',
+            'mark' => '1'
+        ]);
 
 
-    Quiz_questions::create([
 
-        'quiz_id' => '3',
-        'title' => 'Who is the father of java programing?',
-        'marke' =>'1'
-    ]);
 
-    Quiz_questions::create([
+        Quiz_questions::create([
 
-        'quiz_id' => '3',
-        'title' => 'what is DML Commands are',
-        'marke' =>'1'
-    ]);
-    Quiz_questions::create([
+            'quiz_id' => '3',
+            'title' => 'Who is the father of java programing?',
+            'mark' => '1'
+        ]);
 
-        'quiz_id' => '3',
-        'title' => 'java Program to find sum of array elements.',
-        'marke' =>'1'
-    ]);
-   
+        Quiz_questions::create([
+
+            'quiz_id' => '3',
+            'title' => 'what is DML Commands are',
+            'mark' => '1'
+        ]);
+       
     }
 }

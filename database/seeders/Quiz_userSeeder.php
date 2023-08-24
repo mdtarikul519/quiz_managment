@@ -18,19 +18,19 @@ class Quiz_userSeeder extends Seeder
         Quiz_user::create([ 
             'user_id' => '2',
             'quiz_id' => '1',
-            'marke' => '4',
+            'mark' => '2',
         ]);
 
         Quiz_user::create([ 
             'user_id' => '2',
             'quiz_id' => '2',
-            'marke' => '2',
+            'mark' => '2',
         ]);
 
-        Quiz_user::create([ 
-            'user_id' => '3',
-            'quiz_id' => '3',
-            'marke' => '1',
-        ]);
+        // Quiz_user::create([ 
+        //     'user_id' => '3',
+        //     'quiz_id' => '3',
+        //     'marke' => '1',
+        // ]);
     }
 }

@@ -17,7 +17,7 @@ class CreateQuizUsersTable extends Migration
             $table->id();
             $table->bigInteger('user_id')->nullable();
             $table->bigInteger('quiz_id')->nullable();
-            $table->float('marke')->nullable();
+            $table->float('mark')->nullable();
             $table->timestamps();
         });
     }

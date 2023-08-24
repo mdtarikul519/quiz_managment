@@ -36,11 +36,11 @@
                                             <div class="table_action">
 
                                                 <a class="btn btn-sm btn-outline-info"
-                                                    href="{{ route('admin.question.edit', $item->id) }}">Edit</i></a>
+                                                    href="{{ route('admin.option.edit', $item->id) }}">Edit</i></a>
                                                 {{-- <li><a class="btn btn-sm btn-outline-warning" href="">View</i></a></li> --}}
                                                 <a class="btn btn-sm btn-outline-danger"
                                                     onclick="return confirm('Do you want to confirm')"
-                                                    href="{{ route('admin.question.delete', $item->id) }}">Delete</i></a>
+                                                    href="{{ route('admin.option.delete', $item->id) }}">Delete</i></a>
 
                                             </div>
                                         </td>

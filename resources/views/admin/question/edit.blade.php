@@ -20,7 +20,7 @@
                                  <input type="text" value="{{ $editdata->title }}" name="title" class="form-control">
                              </div>
                              <div class="form-group col-md-6">
-                              <label for="">question_name</label>
+                              <label for="">Is_correct</label>
                               <input type="text" value="{{ $editdata->is_correct }}" name="is_correct" class="form-control">
                           </div>
     
